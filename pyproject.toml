@@ -1,0 +1,148 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pymcpx"
+version = "0.1.0"
+description = "MCP-compatible LangChain tools for popular services — GitHub, Slack, Jira, Gmail, and more."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "PyMCPX Contributors" }]
+keywords = ["mcp", "langchain", "tools", "ai", "agents", "github", "slack", "jira", "gmail"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# Minimal core dependencies (no service-specific deps here)
+dependencies = [
+    "pydantic>=2.0",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+github = [
+    "PyGithub>=2.1",
+    "requests>=2.31",
+    "langchain-core>=0.2",
+]
+slack = [
+    "slack-sdk>=3.27",
+    "langchain-core>=0.2",
+]
+jira = [
+    "jira>=3.6",
+    "langchain-core>=0.2",
+]
+gmail = [
+    "google-api-python-client>=2.120",
+    "google-auth-httplib2>=0.2",
+    "google-auth-oauthlib>=1.2",
+    "langchain-core>=0.2",
+]
+notion = [
+    "notion-client>=2.2",
+    "langchain-core>=0.2",
+]
+# Install all services
+all = [
+    "pymcpx[github]",
+    "pymcpx[slack]",
+    "pymcpx[jira]",
+    "pymcpx[gmail]",
+    "pymcpx[notion]",
+]
+# Development extras
+dev = [
+    "pymcpx[all]",
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-cov>=5.0",
+    "ruff>=0.4",
+    "pyupgrade>=3.15",
+    "pre-commit>=3.7",
+    "httpx>=0.27",
+    "respx>=0.21",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/pymcpx"
+Documentation = "https://pymcpx.readthedocs.io"
+Repository = "https://github.com/your-org/pymcpx"
+Issues = "https://github.com/your-org/pymcpx/issues"
+Changelog = "https://github.com/your-org/pymcpx/blob/main/CHANGELOG.md"
+
+# ---------------------------------------------------------------------------
+# Hatch build
+# ---------------------------------------------------------------------------
+[tool.hatch.build.targets.wheel]
+packages = ["pymcpx"]
+
+# ---------------------------------------------------------------------------
+# Ruff — linter + formatter (replaces black, isort, flake8)
+# ---------------------------------------------------------------------------
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+    "N",   # pep8-naming
+    "SIM", # flake8-simplify
+    "TCH", # flake8-type-checking
+    "ANN", # flake8-annotations (partial)
+    "RUF", # Ruff-specific rules
+]
+ignore = [
+    "ANN101", # missing type annotation for self
+    "ANN102", # missing type annotation for cls
+    "ANN401", # any type
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["pymcpx"]
+force-sort-within-sections = true
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+# ---------------------------------------------------------------------------
+# Pytest
+# ---------------------------------------------------------------------------
+[tool.pytest.ini_options]
+testpaths = [
+    "pymcpx/services",
+    "pymcpx/regression_tests",
+    "pymcpx/scenario_tests",
+]
+asyncio_mode = "auto"
+addopts = "--tb=short -q"
+
+# ---------------------------------------------------------------------------
+# Coverage
+# ---------------------------------------------------------------------------
+[tool.coverage.run]
+source = ["pymcpx"]
+omit = ["*/tests/*", "*/simulation/*", "scripts/*"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false

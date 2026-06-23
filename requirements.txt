@@ -1,0 +1,4 @@
+# Core runtime dependencies
+# Service-specific deps: pip install pymcpx[github], pymcpx[slack], etc.
+pydantic>=2.0
+python-dotenv>=1.0
