@@ -52,6 +52,15 @@ notion = [
     "notion-client>=2.2",
     "langchain-core>=0.2",
 ]
+calculator = [
+    "langchain-core>=0.2",
+]
+datetime = [
+    "langchain-core>=0.2",
+]
+converter = [
+    "langchain-core>=0.2",
+]
 # Install all services
 all = [
     "pymcpx[github]",
@@ -59,6 +68,9 @@ all = [
     "pymcpx[jira]",
     "pymcpx[gmail]",
     "pymcpx[notion]",
+    "pymcpx[calculator]",
+    "pymcpx[datetime]",
+    "pymcpx[converter]",
 ]
 # Development extras
 dev = [

@@ -107,13 +107,18 @@ mcp_server.register_tools(MCP_TOOLS)
 
 ## Services
 
-| Service | Status | Install Extra | Tools |
-|---------|--------|---------------|-------|
-| **GitHub** | ✅ Ready | `pymcpx[github]` | search repos, get repo, create/get/list issues, create/list PRs |
-| **Slack** | 🚧 Coming Soon | `pymcpx[slack]` | send message, list channels, get messages |
-| **Jira** | 🚧 Coming Soon | `pymcpx[jira]` | create/get/list/update tickets |
-| **Gmail** | 🚧 Coming Soon | `pymcpx[gmail]` | send/list/get emails |
-| **Notion** | 🚧 Coming Soon | `pymcpx[notion]` | create/get pages, list database items |
+For full details on the tools, schemas, and offline simulation engines of each service, refer to their respective service-level `README.md` files:
+
+| Service        | Status         | Install Extra        | Documentation                                  |
+| -------------- | -------------- | -------------------- | ---------------------------------------------- | --- |
+| **Calculator** | ✅ Ready       | `pymcpx[calculator]` | [README](pymcpx/services/calculator/README.md) |
+| **Datetime**   | ✅ Ready       | `pymcpx[datetime]`   | [README](pymcpx/services/datetime/README.md)   |
+| **Converter**  | ✅ Ready       | `pymcpx[converter]`  | [README](pymcpx/services/converter/README.md)  |
+| **GitHub**     | 🚧 Coming Soon | `pymcpx[github]`     | —                                              |
+| **Slack**      | 🚧 Coming Soon | `pymcpx[slack]`      | —                                              |
+| **Jira**       | 🚧 Coming Soon | `pymcpx[jira]`       | —                                              |
+| **Gmail**      | 🚧 Coming Soon | `pymcpx[gmail]`      | —                                              |
+| **Notion**     | 🚧 Coming Soon | `pymcpx[notion]`     | —                                              |     |
 
 **Planned:** GitLab, Linear, Discord, Google Drive, Weather, News, SerpAPI, Reddit, LinkedIn, YouTube, Twitter
 
@@ -147,32 +152,8 @@ pymcpx/
 │   └── release.py            ← version bumper
 ├── .github/workflows/        ← CI, tests, publish
 └── pyproject.toml
+
 ```
-
----
-
-## Testing
-
-```bash
-# Set up environment
-python scripts/bootstrap.py
-
-# All tests
-python scripts/test.py
-
-# Per service
-python scripts/test.py --service github
-
-# By category
-python scripts/test.py --unit
-python scripts/test.py --regression
-python scripts/test.py --scenario
-
-# With coverage
-python scripts/test.py --cov
-```
-
----
 
 ## Adding a New Service
 
@@ -187,20 +168,7 @@ This scaffolds all required files. Then implement `models.py`, `tools.py`,
 
 ## Contributing
 
-See [`.skills/contributing.md`](.skills/contributing.md) for the full guide.
-
-Quick start:
-```bash
-git clone https://github.com/your-org/pymcpx.git
-cd pymcpx
-python scripts/bootstrap.py
-git checkout -b feat/my-service
-# ... implement
-python scripts/test.py
-git push && open a PR
-```
-
----
+## See [`.skills/contributing.md`](.skills/contributing.md) for the full guide.
 
 ## License
 
