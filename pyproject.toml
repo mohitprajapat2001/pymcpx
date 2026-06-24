@@ -38,11 +38,16 @@ datetime = [
 converter = [
     "langchain-core>=0.2",
 ]
+ipstack = [
+    "langchain-core>=0.2",
+    "httpx>=0.27",
+]
 # Install all services
 all = [
     "pymcpx[calculator]",
     "pymcpx[datetime]",
     "pymcpx[converter]",
+    "pymcpx[ipstack]",
 ]
 # Development extras
 dev = [
