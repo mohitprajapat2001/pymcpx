@@ -1,0 +1,10 @@
+# Demo / notebook dependencies
+# Install after cloning the repo:
+#   pip install -e ".[dev]"
+#   pip install -r demos/requirements.txt
+
+jupyter>=1.0
+langchain>=0.2
+langchain-google-genai>=2.0
+langchain-groq>=0.2
+langchain-ollama>=0.2

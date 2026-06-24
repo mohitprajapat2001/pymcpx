@@ -25,7 +25,7 @@ pip install pymcpx[datetime]
 ### Individual Tools
 
 ```python
-from pymcpx.services.datetime import GetCurrentTimeTool
+    from pymcpx.datetime import GetCurrentTimeTool
 
 tool = GetCurrentTimeTool()
 result = tool.invoke({"timezone": "America/New_York"})
@@ -37,7 +37,7 @@ print(result)  # e.g., "2026-06-24T12:00:00-04:00"
 You can retrieve all datetime tools at once using the `DatetimeToolkit`:
 
 ```python
-from pymcpx.services.datetime import DatetimeToolkit
+    from pymcpx.datetime import DatetimeToolkit
 
 toolkit = DatetimeToolkit()
 tools = toolkit.get_tools()
@@ -48,7 +48,7 @@ tools = toolkit.get_tools()
 Register all tools with your MCP server:
 
 ```python
-from pymcpx.services.datetime import MCP_TOOLS
+    from pymcpx.datetime import MCP_TOOLS
 
 mcp_server.register_tools(MCP_TOOLS)
 ```
@@ -58,7 +58,7 @@ mcp_server.register_tools(MCP_TOOLS)
 You can run these tools offline or with deterministic pinned responses for testing:
 
 ```python
-from pymcpx.services.datetime import DatetimeSimulationEngine
+    from pymcpx.datetime import DatetimeSimulationEngine
 
 engine = DatetimeSimulationEngine()
 

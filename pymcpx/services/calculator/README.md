@@ -28,7 +28,7 @@ pip install pymcpx[calculator]
 ### Individual Tools
 
 ```python
-from pymcpx.services.calculator import AddTool
+    from pymcpx.calculator import AddTool
 
 tool = AddTool()
 result = tool.invoke({"a": 3, "b": 4})
@@ -40,7 +40,7 @@ print(result)  # "7"
 You can retrieve all calculator tools at once using the `CalculatorToolkit`:
 
 ```python
-from pymcpx.services.calculator import CalculatorToolkit
+    from pymcpx.calculator import CalculatorToolkit
 
 toolkit = CalculatorToolkit()
 tools = toolkit.get_tools()
@@ -51,7 +51,7 @@ tools = toolkit.get_tools()
 Register all tools with your MCP server:
 
 ```python
-from pymcpx.services.calculator import MCP_TOOLS
+    from pymcpx.calculator import MCP_TOOLS
 
 mcp_server.register_tools(MCP_TOOLS)
 ```

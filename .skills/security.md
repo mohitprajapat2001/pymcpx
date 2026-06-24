@@ -5,7 +5,7 @@
 - **Never** hardcode tokens, API keys, or passwords in source code
 - Use `SecretStr` from Pydantic for all sensitive fields
 - Load from environment variables via `python-dotenv`
-- Each service has a `.env.example` — copy to `.env`, fill in, never commit `.env`
+- Create a `.env` file for local secrets — never commit `.env` to the repository
 
 ```python
 from pydantic import SecretStr
@@ -37,15 +37,7 @@ This prevents injection attacks and malformed requests.
 inp = SearchRepositoriesInput(**kwargs)  # validated ✅
 ```
 
-## Token Scopes
-
-Document the minimum required token scopes in each service's README:
-- GitHub: specify which scopes are needed per tool
-- Slack: specify which bot token scopes are needed
-- etc.
-
 ## Dependency Security
 
 - Pin dependency versions in `pyproject.toml`
 - Run `pip audit` in CI (optional but recommended)
-- Use trusted publishing for PyPI (no `PYPI_TOKEN` secret in Actions)

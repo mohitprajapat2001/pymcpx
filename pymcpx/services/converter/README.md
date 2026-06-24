@@ -23,7 +23,7 @@ pip install pymcpx[converter]
 ### Individual Tools
 
 ```python
-from pymcpx.services.converter import ConvertLengthTool
+    from pymcpx.converter import ConvertLengthTool
 
 tool = ConvertLengthTool()
 result = tool.invoke({"value": 1.5, "from_unit": "m", "to_unit": "cm"})
@@ -33,7 +33,7 @@ print(result)  # "150"
 ### Toolkit
 
 ```python
-from pymcpx.services.converter import ConverterToolkit
+    from pymcpx.converter import ConverterToolkit
 
 toolkit = ConverterToolkit()
 tools = toolkit.get_tools()
@@ -44,7 +44,7 @@ tools = toolkit.get_tools()
 Register all tools with your MCP server:
 
 ```python
-from pymcpx.services.converter import MCP_TOOLS
+    from pymcpx.converter import MCP_TOOLS
 
 mcp_server.register_tools(MCP_TOOLS)
 ```
