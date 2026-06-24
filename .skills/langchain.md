@@ -6,20 +6,21 @@ All PyMCPX tools extend `langchain_core.tools.BaseTool`:
 
 ```python
 from langchain_core.tools import BaseTool
-from pymcpx.services.github.models import SearchRepositoriesInput
+from pydantic import BaseModel, Field
 
-class GitHubSearchRepositoriesTool(BaseTool):
-    name: str = "github_search_repositories"
-    description: str = "Search GitHub repositories..."
-    args_schema: type = SearchRepositoriesInput
-    config: GitHubConfig | None = None
+class BinaryFloatInput(BaseModel):
+    a: float = Field(description="First operand")
+    b: float = Field(description="Second operand")
 
-    def _run(self, **kwargs) -> dict:
-        inp = SearchRepositoriesInput(**kwargs)
-        client = _client_from_env(self.config)
-        return client.search_repositories(inp).model_dump()
+class AddTool(BaseTool):
+    name: str = "add_numbers"
+    description: str = "Add two numbers together and return their sum."
+    args_schema: type[BaseModel] = BinaryFloatInput
 
-    async def _arun(self, **kwargs) -> dict:
+    def _run(self, a: float, b: float, **kwargs) -> str:
+        return str(a + b)
+
+    async def _arun(self, **kwargs) -> str:
         return self._run(**kwargs)
 ```
 
@@ -27,25 +28,15 @@ class GitHubSearchRepositoriesTool(BaseTool):
 
 ```python
 from langchain.agents import create_tool_calling_agent
-from pymcpx.services.github import (
-    GitHubSearchRepositoriesTool,
-    GitHubCreateIssueTool,
-)
+from pymcpx.services.calculator import AddTool, DivideTool
 
-tools = [GitHubSearchRepositoriesTool(), GitHubCreateIssueTool()]
+tools = [AddTool(), DivideTool()]
 agent = create_tool_calling_agent(llm=llm, tools=tools, prompt=prompt)
 ```
 
 ## Config Injection
 
-Tools accept an optional explicit config (for testing / multi-tenant):
-
-```python
-config = GitHubConfig(token=SecretStr("ghp_..."))
-tool = GitHubSearchRepositoriesTool(config=config)
-```
-
-Without config, tools read from environment variables automatically.
+Tools can accept an optional explicit config (for testing / multi-tenant):
 
 ## Async
 

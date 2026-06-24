@@ -2,17 +2,16 @@
 
 ## Service Responsibilities
 
-Each service sub-package in `pymcpx/services/<name>/` follows this exact layout:
+Each service sub-package in `pymcpx/services/<name>/` follows this layout:
 
 ```
 <name>/
 ├── __init__.py      ← re-exports full public API
-├── models.py        ← Pydantic config + input + output models
+├── models.py        ← Pydantic input + output models
 ├── tools.py         ← LangChain BaseTool subclasses + MCP_TOOLS
-├── utils.py         ← helpers (headers, errors, pagination, strings)
-├── .env.example     ← required environment variables
+├── utils.py         ← helpers (parsing, conversion logic)
 ├── README.md        ← service-specific documentation
-├── simulation/      ← offline engine for testing + evaluation
+├── SimulationEngine/← offline engine for testing
 │   ├── __init__.py
 │   ├── engine.py    ← SimulationEngine class
 │   ├── models.py    ← SimulatedResponse, SimulationCall
@@ -24,42 +23,39 @@ Each service sub-package in `pymcpx/services/<name>/` follows this exact layout:
 
 ## Creating a New Service
 
-```bash
-python scripts/create_service.py <service_name>
-```
+Create a new directory under `pymcpx/services/<name>/`.
 
 Then implement:
-1. `models.py` — config model, input/output models per operation
-2. `utils.py` — headers, error class, any parsing helpers
+1. `models.py` — input/output models per operation
+2. `utils.py` — parsing, conversion helpers
 3. `tools.py` — BaseTool subclasses + MCP_TOOLS
-4. `simulation/engine.py` — SimulationEngine with built-in fixtures
+4. `SimulationEngine/engine.py` — SimulationEngine with built-in fixtures
 5. `tests/test_<name>.py` — unit tests using simulation
 6. Update `__init__.py` to re-export everything
 
-Reference: `pymcpx/services/github/` is the canonical implementation.
+Reference: `pymcpx/services/calculator/` is the canonical implementation.
 
 ## Installation Strategy
 
 ```bash
 pip install pymcpx           # core only (pydantic + dotenv)
-pip install pymcpx[github]   # GitHub + langchain-core + requests
-pip install pymcpx[slack]    # Slack + langchain-core + slack-sdk
-pip install pymcpx[all]      # all services
+pip install pymcpx[calculator]   # calculator + langchain-core
+pip install pymcpx[datetime]     # datetime + langchain-core
+pip install pymcpx[converter]    # converter + langchain-core
+pip install pymcpx[all]          # all services
 ```
 
 Service extras are declared in `pyproject.toml [project.optional-dependencies]`.
 Add a new section for each service you add.
 
-## Service Configuration
+## Service Tools
 
-All services accept a typed `Config` model:
+Services expose tools directly without configuration:
 
 ```python
-config = GitHubConfig(token=SecretStr(os.environ["GITHUB_TOKEN"]))
-tool = GitHubSearchRepositoriesTool(config=config)
-```
+    from pymcpx.calculator import AddTool
 
-Or fall back to environment variables automatically:
-```python
-tool = GitHubSearchRepositoriesTool()  # reads GITHUB_TOKEN from env
+tool = AddTool()
+result = tool.invoke({"a": 3, "b": 4})
+print(result)  # "7"
 ```

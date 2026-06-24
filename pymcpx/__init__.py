@@ -1,16 +1,16 @@
 """
-PyMCPX — MCP-compatible LangChain tools for popular services.
+PyMCPX — MCP-compatible LangChain tools for AI agents.
 
 Quick start
 -----------
 Install a service extra:
-    pip install pymcpx[github]
+    pip install pymcpx[calculator]
 
 Import tools:
-    from pymcpx.services.github import GitHubSearchRepositoriesTool
+    from pymcpx.calculator import AddTool
 
 Or import all tools from a service:
-    from pymcpx.services.github import *
+    from pymcpx.calculator import *
 """
 
 from importlib.metadata import PackageNotFoundError, version

@@ -13,10 +13,10 @@ Each MCP tool has:
 Each `BaseTool` subclass maps directly to an MCP tool:
 
 ```python
-class GitHubSearchRepositoriesTool(BaseTool):
-    name: str = "github_search_repositories"      # ← MCP tool name
-    description: str = "Search GitHub repos..."   # ← MCP description
-    args_schema: type = SearchRepositoriesInput    # ← MCP inputSchema
+class AddTool(BaseTool):
+    name: str = "add_numbers"                     # ← MCP tool name
+    description: str = "Add two numbers..."       # ← MCP description
+    args_schema: type = BinaryFloatInput           # ← MCP inputSchema
 ```
 
 ## Tool Name Convention
@@ -24,10 +24,9 @@ class GitHubSearchRepositoriesTool(BaseTool):
 `<service>_<operation>` — all lowercase, underscore-separated.
 
 Examples:
-- `github_search_repositories`
-- `github_create_issue`
-- `slack_send_message`
-- `jira_create_ticket`
+- `add_numbers`
+- `get_current_time`
+- `convert_length`
 
 **Tool names must never be changed after release** — MCP clients hardcode them.
 
@@ -36,7 +35,7 @@ Examples:
 Each service exposes a `MCP_TOOLS` list:
 
 ```python
-from pymcpx.services.github.tools import MCP_TOOLS
+from pymcpx.services.calculator import MCP_TOOLS
 
 # Register with an MCP server
 mcp_server.register_tools(MCP_TOOLS)
@@ -45,9 +44,9 @@ mcp_server.register_tools(MCP_TOOLS)
 ## Exporting JSON Schemas
 
 ```python
-tool = GitHubSearchRepositoriesTool()
+tool = AddTool()
 schema = tool.args_schema.model_json_schema()
-print(schema)  # → {"title": "SearchRepositoriesInput", "properties": {...}}
+print(schema)  # → {"title": "BinaryFloatInput", "properties": {...}}
 ```
 
 ## Versioning and Breaking Changes
