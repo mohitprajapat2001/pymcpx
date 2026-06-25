@@ -2,7 +2,6 @@
 
 > **MCP-compatible LangChain tools for AI agents — calculator, datetime, converter, and more.**
 
-[![PyPI](https://img.shields.io/pypi/v/pymcpx.svg)](https://pypi.org/project/pymcpx/)
 [![Python](https://img.shields.io/pypi/pyversions/pymcpx.svg)](https://pypi.org/project/pymcpx/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
@@ -36,124 +35,58 @@ pip install pymcpx[all]
 pip install pymcpx[dev]
 ```
 
----
-
-## Quick Start
-
-### Calculator
-
-```python
-from pymcpx.calculator import AddTool, DivideTool
-
-add = AddTool()
-result = add.invoke({"a": 3, "b": 4})
-print(result)  # "7"
-
-div = DivideTool()
-result = div.invoke({"a": 10, "b": 2})
-print(result)  # "5"
-```
-
-### Offline Simulation (No API Key Needed)
-
-```python
-from pymcpx.datetime import DatetimeSimulationEngine
-
-engine = DatetimeSimulationEngine()
-
-result = engine.run("get_current_time", {"timezone": "UTC"})
-print(result)  # e.g. "2026-06-24T12:00:00+0000"
-
-# Inspect the call history
-for call in engine.history:
-    print(f"{call.tool_name}: {call.inputs}")
-```
-
-### MCP Registration
-
-```python
-from pymcpx.calculator import MCP_TOOLS
-
-# Register all calculator tools with your MCP server
-mcp_server.register_tools(MCP_TOOLS)
-```
-
----
-
 ## Services
 
 For full details on the tools, schemas, and offline simulation engines of each service, refer to their respective service-level `README.md` files:
 
-| Service        | Status         | Install Extra        | Documentation                                  |
-| -------------- | -------------- | -------------------- | ---------------------------------------------- |
-| **Calculator** | ✅ Ready       | `pymcpx[calculator]` | [README](pymcpx/services/calculator/README.md) |
-| **Datetime**   | ✅ Ready       | `pymcpx[datetime]`   | [README](pymcpx/services/datetime/README.md)   |
-| **Converter**  | ✅ Ready       | `pymcpx[converter]`  | [README](pymcpx/services/converter/README.md)  |
-
-**Planned:** GitHub, Slack, Jira, Gmail, Notion, GitLab, Linear, Discord, Google Drive, Weather, News, SerpAPI, Reddit, LinkedIn, YouTube, Twitter
-
----
-
-## Demos
-
-Interactive Jupyter notebooks are provided under `demos/` to help you explore each service with a real LLM.
-
-```bash
-# From the repo root
-pip install -e ".[dev]"
-pip install -r demos/requirements.txt
-cp demos/.env.example demos/.env
-# edit demos/.env with your API key (Gemini, Groq, or local Ollama)
-jupyter notebook demos/calculator/basic_operations.ipynb
-```
-
-The demo notebooks let you choose your LLM provider via `.env`:
-
-| Provider | Env value       | Required key          |
-|----------|----------------|-----------------------|
-| **Gemini**  | `gemini`    | `GEMINI_API_KEY`      |
-| **Groq**    | `groq`      | `GROQ_API_KEY`        |
-| **Local**   | `local`     | (Ollama running locally) |
-
----
-
-## Project Structure
-
-```
-pymcpx/
-├── pymcpx/
-│   ├── services/          ← internal service implementations
-│   │   ├── calculator/    ← arithmetic tools + simulation engine
-│   │   ├── datetime/      ← date/time tools + simulation engine
-│   │   └── converter/     ← unit conversion tools + simulation engine
-│   ├── calculator.py      ← re-export shim (public API)
-│   ├── datetime.py
-│   ├── converter.py
-│   └── __init__.py
-├── demos/                 ← interactive Jupyter notebooks
-├── .skills/               ← project knowledge base
-├── .github/workflows/     ← CI, tests
-└── pyproject.toml
-```
-
-## Adding a New Service
-
-Create a new directory under `pymcpx/services/<name>/` with the following files:
-
-- `__init__.py` — re-export public API
-- `models.py` — Pydantic config, input, output models
-- `tools.py` — LangChain `BaseTool` subclasses + `MCP_TOOLS` list
-- `SimulationEngine/` — offline engine with fixture support
-- `README.md` — service documentation
-- `tests/` — unit tests
-
-Then create a re-export shim at `pymcpx/<name>.py` (see existing services for reference).
-
----
+| Service          | Status         | Install Extra          | Documentation                                        |
+| ---------------- | -------------- | ---------------------- | ---------------------------------------------------- |
+| **Calculator**   | ✅ Ready       | `pymcpx[calculator]`   | [README](pymcpx/services/calculator/README.md)       |
+| **Converter**    | ✅ Ready       | `pymcpx[converter]`    | [README](pymcpx/services/converter/README.md)        |
+| **Datetime**     | ✅ Ready       | `pymcpx[datetime]`     | [README](pymcpx/services/datetime/README.md)         |
+| **IPstack**      | ✅ Ready       | `pymcpx[ipstack]`      | [README](pymcpx/services/ipstack/README.md)          |
+| **Marketstack**  | ✅ Ready       | `pymcpx[marketstack]`  | [README](pymcpx/services/marketstack/README.md)      |
 
 ## Contributing
 
-See [`.skills/contributing.md`](.skills/contributing.md) for the full guide.
+### Getting Started
+
+```bash
+git clone https://github.com/your-org/pymcpx.git
+cd pymcpx
+pip install -e ".[dev]"
+```
+
+### Workflow
+
+1. Create a branch: `git checkout -b feat/my-feature`
+2. Make changes following the coding conventions
+3. Add / update tests
+4. Run tests: `pytest`
+5. Submit a Pull Request
+
+### Adding a New Service
+
+Create a new directory under `pymcpx/services/<name>/` following the layout of `pymcpx/services/calculator/`:
+
+- `SimulationEngine/models.py` — Pydantic input models
+- `SimulationEngine/utils.py` — business logic, API clients
+- `tools.py` — `BaseTool` subclasses + `MCP_TOOLS` list
+- `SimulationEngine/engine.py` — offline simulation engine
+- `tests/test_<name>.py` — unit tests
+- `README.md` — service documentation
+
+Then add a re-export shim at `pymcpx/<name>.py` and register the optional dependency in `pyproject.toml`.
+
+### Pull Request Requirements
+
+- All tests pass
+- No new ruff warnings
+- New services include all required files (see above)
+
+### Continuous Integration
+
+CI (`.github/workflows/tests.yml`) runs automatically on every push and pull request across Python 3.11 and 3.12 with coverage reporting.
 
 ## License
 
