@@ -7,7 +7,7 @@ Re-exports from ``pymcpx.services.calculator`` for convenient access via
 The original ``from pymcpx.services.calculator import ...`` path also works.
 """
 
-from pymcpx.services.calculator import (  # noqa: F401
+from pymcpx.services.calculator import (
     MCP_TOOLS,
     AbsTool,
     AddTool,

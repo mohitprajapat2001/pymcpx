@@ -7,7 +7,7 @@ Re-exports from ``pymcpx.services.converter`` for convenient access via
 The original ``from pymcpx.services.converter import ...`` path also works.
 """
 
-from pymcpx.services.converter import (  # noqa: F401
+from pymcpx.services.converter import (
     MCP_TOOLS,
     ConverterSimulationEngine,
     ConverterToolkit,
