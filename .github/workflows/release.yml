@@ -1,0 +1,71 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build & Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies & build package
+        run: |
+          python -m pip install --upgrade pip
+          pip install build
+          python -m build
+
+      - name: Publish package to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          name: PyMCPX ${{ github.ref_name }}
+          body: |
+            # PyMCPX ${{ github.ref_name }}
+
+            MCP-compatible LangChain tools for AI agents — calculator, datetime, converter, and more.
+
+            ## Services Included:
+            - **Calculator** (`pymcpx[calculator]`)
+            - **Converter** (`pymcpx[converter]`)
+            - **Datetime** (`pymcpx[datetime]`)
+            - **IPstack** (`pymcpx[ipstack]`)
+            - **Marketstack** (`pymcpx[marketstack]`)
+            - **Weatherstack** (`pymcpx[weatherstack]`)
+            - **Numverify** (`pymcpx[numverify]`)
+            - **Fixer** (`pymcpx[fixer]`)
+            - **Aviationstack** (`pymcpx[aviationstack]`)
+            - **Zenserp** (`pymcpx[zenserp]`)
+            - **Screenshotlayer** (`pymcpx[screenshotlayer]`)
+            - **ExchangeRate.host** (`pymcpx[exchangeratehost]`)
+
+            ## Installation
+
+            Install the core package:
+            ```bash
+            pip install pymcpx
+            ```
+
+            Or install with all services:
+            ```bash
+            pip install "pymcpx[all]"
+            ```
+          draft: false
+          prerelease: false
