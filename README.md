@@ -47,6 +47,7 @@ For full details on the tools, schemas, and offline simulation engines of each s
 | **IPstack**      | ✅ Ready       | `pymcpx[ipstack]`      | [README](pymcpx/services/ipstack/README.md)          |
 | **Marketstack**  | ✅ Ready       | `pymcpx[marketstack]`  | [README](pymcpx/services/marketstack/README.md)      |
 | **Weatherstack** | ✅ Ready       | `pymcpx[weatherstack]` | [README](pymcpx/services/weatherstack/README.md)     |
+| **Numverify**    | ✅ Ready       | `pymcpx[numverify]`    | [README](pymcpx/services/numverify/README.md)        |
 
 ## Contributing
 
