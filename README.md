@@ -46,6 +46,7 @@ For full details on the tools, schemas, and offline simulation engines of each s
 | **Datetime**     | ✅ Ready       | `pymcpx[datetime]`     | [README](pymcpx/services/datetime/README.md)         |
 | **IPstack**      | ✅ Ready       | `pymcpx[ipstack]`      | [README](pymcpx/services/ipstack/README.md)          |
 | **Marketstack**  | ✅ Ready       | `pymcpx[marketstack]`  | [README](pymcpx/services/marketstack/README.md)      |
+| **Weatherstack** | ✅ Ready       | `pymcpx[weatherstack]` | [README](pymcpx/services/weatherstack/README.md)     |
 
 ## Contributing
 
@@ -67,16 +68,20 @@ pip install -e ".[dev]"
 
 ### Adding a New Service
 
-Create a new directory under `pymcpx/services/<name>/` following the layout of `pymcpx/services/calculator/`:
+Create a new directory under `pymcpx/services/<name>/` following the layout of `pymcpx/services/ipstack/`:
 
 - `SimulationEngine/models.py` — Pydantic input models
 - `SimulationEngine/utils.py` — business logic, API clients
 - `tools.py` — `BaseTool` subclasses + `MCP_TOOLS` list
 - `SimulationEngine/engine.py` — offline simulation engine
-- `tests/test_<name>.py` — unit tests
-- `README.md` — service documentation
+- `tests/test_<name>.py` — unit tests with `respx` mocks
+- `README.md` — service documentation including:
+  - Prerequisites (API key setup)
+  - Installation command
+  - Tools table with names, classes, descriptions, and input keys
+  - Usage examples (individual tools, toolkit, MCP integration)
 
-Then add a re-export shim at `pymcpx/<name>.py` and register the optional dependency in `pyproject.toml`.
+Then add a re-export shim at `pymcpx/<name>.py`, register the optional dependency in `pyproject.toml`, and add the service row to the README Services table.
 
 ### Pull Request Requirements
 
