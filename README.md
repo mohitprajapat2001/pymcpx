@@ -49,6 +49,7 @@ For full details on the tools, schemas, and offline simulation engines of each s
 | **Weatherstack** | ✅ Ready       | `pymcpx[weatherstack]` | [README](pymcpx/services/weatherstack/README.md)     |
 | **Numverify**    | ✅ Ready       | `pymcpx[numverify]`    | [README](pymcpx/services/numverify/README.md)        |
 | **Fixer**        | ✅ Ready       | `pymcpx[fixer]`        | [README](pymcpx/services/fixer/README.md)            |
+| **Aviationstack** | ✅ Ready       | `pymcpx[aviationstack]` | [README](pymcpx/services/aviationstack/README.md)   |
 
 ## Contributing
 
