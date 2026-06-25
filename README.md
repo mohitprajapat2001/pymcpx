@@ -2,8 +2,9 @@
 
 > **MCP-compatible LangChain tools for AI agents — calculator, datetime, converter, and more.**
 
-[![Python](https://img.shields.io/pypi/pyversions/pymcpx.svg)](https://pypi.org/project/pymcpx/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)](https://pypi.org/project/pymcpx/)
+[![License: MIT](https://img.shields.io/badge/MIT-red?style=for-the-badge)](LICENSE)
+[![Pypi: Pymcpx](https://img.shields.io/badge/pypi-3775A9?style=for-the-badge&logo=pypi&logoColor=white)](PyPi)
 
 ---
 
@@ -39,17 +40,20 @@ pip install pymcpx[dev]
 
 For full details on the tools, schemas, and offline simulation engines of each service, refer to their respective service-level `README.md` files:
 
-| Service          | Status         | Install Extra          | Documentation                                        |
-| ---------------- | -------------- | ---------------------- | ---------------------------------------------------- |
-| **Calculator**   | ✅ Ready       | `pymcpx[calculator]`   | [README](pymcpx/services/calculator/README.md)       |
-| **Converter**    | ✅ Ready       | `pymcpx[converter]`    | [README](pymcpx/services/converter/README.md)        |
-| **Datetime**     | ✅ Ready       | `pymcpx[datetime]`     | [README](pymcpx/services/datetime/README.md)         |
-| **IPstack**      | ✅ Ready       | `pymcpx[ipstack]`      | [README](pymcpx/services/ipstack/README.md)          |
-| **Marketstack**  | ✅ Ready       | `pymcpx[marketstack]`  | [README](pymcpx/services/marketstack/README.md)      |
-| **Weatherstack** | ✅ Ready       | `pymcpx[weatherstack]` | [README](pymcpx/services/weatherstack/README.md)     |
-| **Numverify**    | ✅ Ready       | `pymcpx[numverify]`    | [README](pymcpx/services/numverify/README.md)        |
-| **Fixer**        | ✅ Ready       | `pymcpx[fixer]`        | [README](pymcpx/services/fixer/README.md)            |
-| **Aviationstack** | ✅ Ready       | `pymcpx[aviationstack]` | [README](pymcpx/services/aviationstack/README.md)   |
+| Service               | Status   | Install Extra              | Documentation                                        |
+| --------------------- | -------- | -------------------------- | ---------------------------------------------------- |
+| **Calculator**        | ✅ Ready | `pymcpx[calculator]`       | [README](pymcpx/services/calculator/README.md)       |
+| **Converter**         | ✅ Ready | `pymcpx[converter]`        | [README](pymcpx/services/converter/README.md)        |
+| **Datetime**          | ✅ Ready | `pymcpx[datetime]`         | [README](pymcpx/services/datetime/README.md)         |
+| **IPstack**           | ✅ Ready | `pymcpx[ipstack]`          | [README](pymcpx/services/ipstack/README.md)          |
+| **Marketstack**       | ✅ Ready | `pymcpx[marketstack]`      | [README](pymcpx/services/marketstack/README.md)      |
+| **Weatherstack**      | ✅ Ready | `pymcpx[weatherstack]`     | [README](pymcpx/services/weatherstack/README.md)     |
+| **Numverify**         | ✅ Ready | `pymcpx[numverify]`        | [README](pymcpx/services/numverify/README.md)        |
+| **Fixer**             | ✅ Ready | `pymcpx[fixer]`            | [README](pymcpx/services/fixer/README.md)            |
+| **Aviationstack**     | ✅ Ready | `pymcpx[aviationstack]`    | [README](pymcpx/services/aviationstack/README.md)    |
+| **Zenserp**           | ✅ Ready | `pymcpx[zenserp]`          | [README](pymcpx/services/zenserp/README.md)          |
+| **Screenshotlayer**   | ✅ Ready | `pymcpx[screenshotlayer]`  | [README](pymcpx/services/screenshotlayer/README.md)  |
+| **ExchangeRate.host** | ✅ Ready | `pymcpx[exchangeratehost]` | [README](pymcpx/services/exchangeratehost/README.md) |
 
 ## Contributing
 
@@ -95,6 +99,10 @@ Then add a re-export shim at `pymcpx/<name>.py`, register the optional dependenc
 ### Continuous Integration
 
 CI (`.github/workflows/tests.yml`) runs automatically on every push and pull request across Python 3.11 and 3.12 with coverage reporting.
+
+## Special Thanks
+
+Special thanks to the [Public APIs](https://github.com/public-apis/public-apis) repository, a manually curated list of public APIs from many domains, which serves as a treasure trove of APIs and inspired our external service integrations.
 
 ## License
 
