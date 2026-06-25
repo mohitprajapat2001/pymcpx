@@ -56,9 +56,7 @@ class AddTool(BaseTool):
     """Add two numbers together."""
 
     name: str = "add_numbers"
-    description: str = (
-        "Add two numbers together and return their sum. Accepts integers or floats."
-    )
+    description: str = "Add two numbers together and return their sum. Accepts integers or floats."
     args_schema: type[BaseModel] = BinaryFloatInput
 
     def _run(self, a: float, b: float, **kwargs: Any) -> str:
@@ -75,9 +73,7 @@ class SubtractTool(BaseTool):
     """Subtract b from a."""
 
     name: str = "subtract_numbers"
-    description: str = (
-        "Subtract the second number from the first and return the difference."
-    )
+    description: str = "Subtract the second number from the first and return the difference."
     args_schema: type[BaseModel] = BinaryFloatInput
 
     def _run(self, a: float, b: float, **kwargs: Any) -> str:
@@ -133,9 +129,7 @@ class PowerTool(BaseTool):
     """Raise a to the power of b."""
 
     name: str = "power_numbers"
-    description: str = (
-        "Raise the first number to the power of the second number (a ** b)."
-    )
+    description: str = "Raise the first number to the power of the second number (a ** b)."
     args_schema: type[BaseModel] = BinaryFloatInput
 
     def _run(self, a: float, b: float, **kwargs: Any) -> str:

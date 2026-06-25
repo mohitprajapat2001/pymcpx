@@ -42,12 +42,17 @@ ipstack = [
     "langchain-core>=0.2",
     "httpx>=0.27",
 ]
+marketstack = [
+    "langchain-core>=0.2",
+    "httpx>=0.27",
+]
 # Install all services
 all = [
     "pymcpx[calculator]",
     "pymcpx[datetime]",
     "pymcpx[converter]",
     "pymcpx[ipstack]",
+    "pymcpx[marketstack]",
 ]
 # Development extras
 dev = [
@@ -99,6 +104,7 @@ ignore = [
     "ANN101", # missing type annotation for self
     "ANN102", # missing type annotation for cls
     "ANN401", # any type
+    "E501",   # line too long (handled by formatter)
 ]
 
 [tool.ruff.lint.isort]

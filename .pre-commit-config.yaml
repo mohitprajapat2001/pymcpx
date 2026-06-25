@@ -32,5 +32,5 @@ repos:
     rev: v0.4.7
     hooks:
       - id: ruff
-        args: ["--fix"]
+        args: ["--fix", "--ignore=E501"]
       - id: ruff-format

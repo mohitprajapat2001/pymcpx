@@ -7,15 +7,15 @@ Re-exports from ``pymcpx.services.datetime`` for convenient access via
 The original ``from pymcpx.services.datetime import ...`` path also works.
 """
 
-from pymcpx.services.datetime import (  # noqa: F401
+from pymcpx.services.datetime import (
     MCP_TOOLS,
     ConvertTimezoneInput,
     ConvertTimezoneTool,
     CurrentTimeInput,
     DatetimeSimulationEngine,
+    DatetimeToolkit,
     DatetimeToTimestampInput,
     DatetimeToTimestampTool,
-    DatetimeToolkit,
     DayOfWeekInput,
     GetCurrentTimeTool,
     GetDayOfWeekTool,
