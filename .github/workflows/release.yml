@@ -4,6 +4,12 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: "Run the workflow without actually publishing to PyPI"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -40,8 +46,11 @@ jobs:
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: ${{ secrets.PYPI_API_TOKEN }}
+          trusted-publishing: never
+          dry-run: ${{ inputs.dry-run || false }}
 
       - name: Create GitHub Release
+        if: !(inputs.dry-run || false)
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ env.VERSION }}
