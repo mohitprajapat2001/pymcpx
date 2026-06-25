@@ -54,6 +54,10 @@ numverify = [
     "langchain-core>=0.2",
     "httpx>=0.27",
 ]
+fixer = [
+    "langchain-core>=0.2",
+    "httpx>=0.27",
+]
 # Install all services
 all = [
     "pymcpx[calculator]",
@@ -63,6 +67,7 @@ all = [
     "pymcpx[marketstack]",
     "pymcpx[weatherstack]",
     "pymcpx[numverify]",
+    "pymcpx[fixer]",
 ]
 # Development extras
 dev = [
