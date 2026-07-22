@@ -44,6 +44,7 @@ For full details on the tools, schemas, and offline simulation engines of each s
 | --------------------- | -------- | -------- | ------------------------------- | ---------------------------------------------------- |
 | **Aviationstack**     | API Key  | ✅ Ready | `pymcpx[aviationstack]`        | [README](pymcpx/services/aviationstack/README.md)    |
 | **Calculator**        | None     | ✅ Ready | `pymcpx[calculator]`            | [README](pymcpx/services/calculator/README.md)       |
+| **Cataas**            | None     | ✅ Ready | `pymcpx[cataas]`                | [README](pymcpx/services/cataas/README.md)           |
 | **Catfacts**          | None     | ✅ Ready | `pymcpx[catfacts]`              | [README](pymcpx/services/catfacts/README.md)         |
 | **Converter**         | None     | ✅ Ready | `pymcpx[converter]`             | [README](pymcpx/services/converter/README.md)        |
 | **Datetime**          | None     | ✅ Ready | `pymcpx[datetime]`              | [README](pymcpx/services/datetime/README.md)         |
