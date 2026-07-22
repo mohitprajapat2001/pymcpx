@@ -48,6 +48,7 @@ For full details on the tools, schemas, and offline simulation engines of each s
 | **Catfacts**          | None     | ✅ Ready | `pymcpx[catfacts]`              | [README](pymcpx/services/catfacts/README.md)         |
 | **Converter**         | None     | ✅ Ready | `pymcpx[converter]`             | [README](pymcpx/services/converter/README.md)        |
 | **Datetime**          | None     | ✅ Ready | `pymcpx[datetime]`              | [README](pymcpx/services/datetime/README.md)         |
+| **Dogapi**            | None     | ✅ Ready | `pymcpx[dogapi]`                | [README](pymcpx/services/dogapi/README.md)           |
 | **ExchangeRate.host** | API Key  | ✅ Ready | `pymcpx[exchangeratehost]`      | [README](pymcpx/services/exchangeratehost/README.md) |
 | **Fixer**             | API Key  | ✅ Ready | `pymcpx[fixer]`                 | [README](pymcpx/services/fixer/README.md)            |
 | **IPstack**           | API Key  | ✅ Ready | `pymcpx[ipstack]`               | [README](pymcpx/services/ipstack/README.md)          |
