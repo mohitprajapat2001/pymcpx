@@ -74,6 +74,10 @@ exchangeratehost = [
     "langchain-core>=0.2",
     "httpx>=0.27",
 ]
+catfacts = [
+    "langchain-core>=0.2",
+    "httpx>=0.27",
+]
 # Install all services
 all = [
     "pymcpx[calculator]",
@@ -88,6 +92,7 @@ all = [
     "pymcpx[zenserp]",
     "pymcpx[screenshotlayer]",
     "pymcpx[exchangeratehost]",
+    "pymcpx[catfacts]",
 ]
 # Development extras
 dev = [
