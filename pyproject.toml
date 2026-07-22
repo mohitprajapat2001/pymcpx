@@ -74,6 +74,22 @@ exchangeratehost = [
     "langchain-core>=0.2",
     "httpx>=0.27",
 ]
+catfacts = [
+    "langchain-core>=0.2",
+    "httpx>=0.27",
+]
+cataas = [
+    "langchain-core>=0.2",
+    "httpx>=0.27",
+]
+dogapi = [
+    "langchain-core>=0.2",
+    "httpx>=0.27",
+]
+ebird = [
+    "langchain-core>=0.2",
+    "httpx>=0.27",
+]
 # Install all services
 all = [
     "pymcpx[calculator]",
@@ -88,6 +104,10 @@ all = [
     "pymcpx[zenserp]",
     "pymcpx[screenshotlayer]",
     "pymcpx[exchangeratehost]",
+    "pymcpx[catfacts]",
+    "pymcpx[cataas]",
+    "pymcpx[dogapi]",
+    "pymcpx[ebird]",
 ]
 # Development extras
 dev = [

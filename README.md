@@ -40,20 +40,24 @@ pip install pymcpx[dev]
 
 For full details on the tools, schemas, and offline simulation engines of each service, refer to their respective service-level `README.md` files:
 
-| Service               | Status   | Install Extra              | Documentation                                        |
-| --------------------- | -------- | -------------------------- | ---------------------------------------------------- |
-| **Calculator**        | ✅ Ready | `pymcpx[calculator]`       | [README](pymcpx/services/calculator/README.md)       |
-| **Converter**         | ✅ Ready | `pymcpx[converter]`        | [README](pymcpx/services/converter/README.md)        |
-| **Datetime**          | ✅ Ready | `pymcpx[datetime]`         | [README](pymcpx/services/datetime/README.md)         |
-| **IPstack**           | ✅ Ready | `pymcpx[ipstack]`          | [README](pymcpx/services/ipstack/README.md)          |
-| **Marketstack**       | ✅ Ready | `pymcpx[marketstack]`      | [README](pymcpx/services/marketstack/README.md)      |
-| **Weatherstack**      | ✅ Ready | `pymcpx[weatherstack]`     | [README](pymcpx/services/weatherstack/README.md)     |
-| **Numverify**         | ✅ Ready | `pymcpx[numverify]`        | [README](pymcpx/services/numverify/README.md)        |
-| **Fixer**             | ✅ Ready | `pymcpx[fixer]`            | [README](pymcpx/services/fixer/README.md)            |
-| **Aviationstack**     | ✅ Ready | `pymcpx[aviationstack]`    | [README](pymcpx/services/aviationstack/README.md)    |
-| **Zenserp**           | ✅ Ready | `pymcpx[zenserp]`          | [README](pymcpx/services/zenserp/README.md)          |
-| **Screenshotlayer**   | ✅ Ready | `pymcpx[screenshotlayer]`  | [README](pymcpx/services/screenshotlayer/README.md)  |
-| **ExchangeRate.host** | ✅ Ready | `pymcpx[exchangeratehost]` | [README](pymcpx/services/exchangeratehost/README.md) |
+| Service               | Auth     | Status   | Install Extra                   | Documentation                                        |
+| --------------------- | -------- | -------- | ------------------------------- | ---------------------------------------------------- |
+| **Aviationstack**     | API Key  | ✅ Ready | `pymcpx[aviationstack]`        | [README](pymcpx/services/aviationstack/README.md)    |
+| **Calculator**        | None     | ✅ Ready | `pymcpx[calculator]`            | [README](pymcpx/services/calculator/README.md)       |
+| **Cataas**            | None     | ✅ Ready | `pymcpx[cataas]`                | [README](pymcpx/services/cataas/README.md)           |
+| **Catfacts**          | None     | ✅ Ready | `pymcpx[catfacts]`              | [README](pymcpx/services/catfacts/README.md)         |
+| **Converter**         | None     | ✅ Ready | `pymcpx[converter]`             | [README](pymcpx/services/converter/README.md)        |
+| **Datetime**          | None     | ✅ Ready | `pymcpx[datetime]`              | [README](pymcpx/services/datetime/README.md)         |
+| **Dogapi**            | None     | ✅ Ready | `pymcpx[dogapi]`                | [README](pymcpx/services/dogapi/README.md)           |
+| **Ebird**             | API Key  | ✅ Ready | `pymcpx[ebird]`                 | [README](pymcpx/services/ebird/README.md)            |
+| **ExchangeRate.host** | API Key  | ✅ Ready | `pymcpx[exchangeratehost]`      | [README](pymcpx/services/exchangeratehost/README.md) |
+| **Fixer**             | API Key  | ✅ Ready | `pymcpx[fixer]`                 | [README](pymcpx/services/fixer/README.md)            |
+| **IPstack**           | API Key  | ✅ Ready | `pymcpx[ipstack]`               | [README](pymcpx/services/ipstack/README.md)          |
+| **Marketstack**       | API Key  | ✅ Ready | `pymcpx[marketstack]`           | [README](pymcpx/services/marketstack/README.md)      |
+| **Numverify**         | API Key  | ✅ Ready | `pymcpx[numverify]`             | [README](pymcpx/services/numverify/README.md)        |
+| **Screenshotlayer**   | API Key  | ✅ Ready | `pymcpx[screenshotlayer]`       | [README](pymcpx/services/screenshotlayer/README.md)  |
+| **Weatherstack**      | API Key  | ✅ Ready | `pymcpx[weatherstack]`          | [README](pymcpx/services/weatherstack/README.md)     |
+| **Zenserp**           | API Key  | ✅ Ready | `pymcpx[zenserp]`               | [README](pymcpx/services/zenserp/README.md)          |
 
 ## Contributing
 
