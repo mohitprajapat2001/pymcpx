@@ -8,7 +8,7 @@ Each service sub-package in `pymcpx/services/<name>/` follows this layout:
 <name>/
 ├── __init__.py        ← re-exports full public API
 ├── tools.py           ← LangChain BaseTool subclasses + MCP_TOOLS list
-├── README.md          ← service-specific documentation
+├── README.md          ← service-specific documentation (auth requirements, tools, usage)
 ├── SimulationEngine/  ← implementation + offline engine for testing
 │   ├── __init__.py    ← re-exports engine, models, utils
 │   ├── engine.py      ← SimulationEngine class (run, register, history)
@@ -37,6 +37,7 @@ Then implement:
 6. Update `__init__.py` to re-export everything
 7. Add `pymcpx/<name>.py` — top-level re-export shim so users can `from pymcpx.<name> import ...`
 8. Register optional dependency in `pyproject.toml`
+9. Document authentication requirements in the service `README.md` — state the env var name if an API key is needed, or note that no API key is required
 
 Reference: `pymcpx/services/calculator/` is the canonical implementation.
 
