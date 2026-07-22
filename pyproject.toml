@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pymcpx"
-version = "0.1.0"
+version = "0.2.0"
 description = "MCP-compatible LangChain tools for AI agents — calculator, datetime, converter, and more."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -92,22 +92,7 @@ ebird = [
 ]
 # Install all services
 all = [
-    "pymcpx[calculator]",
-    "pymcpx[datetime]",
-    "pymcpx[converter]",
-    "pymcpx[ipstack]",
-    "pymcpx[marketstack]",
-    "pymcpx[weatherstack]",
-    "pymcpx[numverify]",
-    "pymcpx[fixer]",
-    "pymcpx[aviationstack]",
-    "pymcpx[zenserp]",
-    "pymcpx[screenshotlayer]",
-    "pymcpx[exchangeratehost]",
-    "pymcpx[catfacts]",
-    "pymcpx[cataas]",
-    "pymcpx[dogapi]",
-    "pymcpx[ebird]",
+    "pymcpx[calculator,datetime,converter,ipstack,marketstack,weatherstack,numverify,fixer,aviationstack,zenserp,screenshotlayer,exchangeratehost,catfacts,cataas,dogapi,ebird]",
 ]
 # Development extras
 dev = [

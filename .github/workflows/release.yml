@@ -50,18 +50,22 @@ jobs:
             MCP-compatible LangChain tools for AI agents — calculator, datetime, converter, and more.
 
             ## Services Included:
+            - **Aviationstack** (`pymcpx[aviationstack]`)
             - **Calculator** (`pymcpx[calculator]`)
+            - **Cataas** (`pymcpx[cataas]`)
+            - **Catfacts** (`pymcpx[catfacts]`)
             - **Converter** (`pymcpx[converter]`)
             - **Datetime** (`pymcpx[datetime]`)
+            - **Dogapi** (`pymcpx[dogapi]`)
+            - **Ebird** (`pymcpx[ebird]`)
+            - **ExchangeRate.host** (`pymcpx[exchangeratehost]`)
+            - **Fixer** (`pymcpx[fixer]`)
             - **IPstack** (`pymcpx[ipstack]`)
             - **Marketstack** (`pymcpx[marketstack]`)
-            - **Weatherstack** (`pymcpx[weatherstack]`)
             - **Numverify** (`pymcpx[numverify]`)
-            - **Fixer** (`pymcpx[fixer]`)
-            - **Aviationstack** (`pymcpx[aviationstack]`)
-            - **Zenserp** (`pymcpx[zenserp]`)
             - **Screenshotlayer** (`pymcpx[screenshotlayer]`)
-            - **ExchangeRate.host** (`pymcpx[exchangeratehost]`)
+            - **Weatherstack** (`pymcpx[weatherstack]`)
+            - **Zenserp** (`pymcpx[zenserp]`)
 
             ## Installation
 
