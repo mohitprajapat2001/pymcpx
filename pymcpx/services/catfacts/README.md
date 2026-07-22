@@ -2,6 +2,10 @@
 
 MCP-compatible LangChain tools for cat facts via the [Cat Fact Ninja API](https://catfact.ninja).
 
+## Prerequisites
+
+No API key required — the [Cat Fact Ninja API](https://catfact.ninja) is free and open.
+
 ## Installation
 
 Install the catfacts extra:
