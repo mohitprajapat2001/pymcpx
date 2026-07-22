@@ -1,4 +1,4 @@
-# PyMCPX v0.2.0
+# PyMCPX v0.2.1
 
 MCP-compatible LangChain tools for AI agents — calculator, datetime, converter, and more.
 

@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "pymcpx"
-version = "0.2.0"
+version = "0.2.1"
 description = "MCP-compatible LangChain tools for AI agents — calculator, datetime, converter, and more."
 readme = "README.md"
 requires-python = ">=3.11"
@@ -108,9 +108,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/pymcpx/pymcpx"
-Repository = "https://github.com/pymcpx/pymcpx"
-Issues = "https://github.com/pymcpx/pymcpx/issues"
+Homepage = "https://github.com/mohitprajapat2001/pymcpx"
+Repository = "https://github.com/mohitprajapat2001/pymcpx"
+Issues = "https://github.com/mohitprajapat2001/pymcpx/issues"
 
 # ---------------------------------------------------------------------------
 # Hatch build
